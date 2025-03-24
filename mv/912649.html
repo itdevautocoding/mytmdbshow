@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Embed | TMDB 912649</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #000;
+            font-family: 'Arial', sans-serif;
+        }
+        .header {
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .back-btn {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            padding: 8px 15px;
+            border: 1px solid white;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+        .back-btn:hover {
+            background: white;
+            color: black;
+        }
+        iframe {
+            width: 100vw;
+            height: calc(100vh - 53px);
+            border: none;
+        }
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h2>TMDB Movie #912649</h2>
+        <a href="/" class="back-btn">← Back to Home</a>
+    </div>
+    <iframe 
+        src="https://vidsrc.dev/embed/movie/912649" 
+        sandbox="allow-scripts allow-same-origin" 
+        allowfullscreen>
+    </iframe>
+</body>
+</html>
