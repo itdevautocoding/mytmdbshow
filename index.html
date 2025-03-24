@@ -1,18 +1,199 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>TMDB Embedder</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TMDB Embed Viewer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
-        code { background: #f0f0f0; padding: 2px 5px; }
+        :root {
+            --primary: #4361ee;
+            --secondary: #3f37c9;
+            --dark: #212529;
+            --light: #f8f9fa;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem 0;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        
+        .logo-icon {
+            font-size: 3rem;
+        }
+        
+        h1 {
+            font-weight: 300;
+            margin-bottom: 1rem;
+        }
+        
+        .subtitle {
+            color: #6c757d;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .card h2 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .card-icon {
+            font-size: 1.5rem;
+        }
+        
+        .url-example {
+            background: var(--light);
+            padding: 1rem;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            margin: 1rem 0;
+            overflow-x: auto;
+        }
+        
+        .example-list {
+            list-style: none;
+            margin-top: 1rem;
+        }
+        
+        .example-list li {
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        
+        .example-list li::before {
+            content: "•";
+            color: var(--primary);
+            position: absolute;
+            left: 0;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 2rem 0;
+            color: #6c757d;
+            border-top: 1px solid #dee2e6;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .logo {
+                font-size: 2rem;
+            }
+        }
     </style>
 </head>
 <body>
-    <h1>TMDB Embedder</h1>
-    <p>Use these URL patterns:</p>
-    <ul>
-        <li><code>https://itdevautocoding.github.io/mytmdbshow/mv/123</code> (Movies)</li>
-        <li><code>https://itdevautocoding.github.io/mytmdbshow/tv/456</code> (TV Shows)</li>
-    </ul>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <span class="logo-icon">🎬</span>
+                <span>TMDB Embed Viewer</span>
+            </div>
+            <h1>Embed TMDB Content Securely</h1>
+            <p class="subtitle">A simple way to view movies and TV shows using TMDB IDs through vidsrc.dev</p>
+        </header>
+        
+        <div class="card-container">
+            <div class="card">
+                <h2><span class="card-icon">🎥</span> Movies</h2>
+                <p>Embed any movie using its TMDB ID:</p>
+                <div class="url-example">https://itdevautocoding.github.io/mytmdbshow/mv/&lt;tmdb_id&gt;</div>
+                <ul class="example-list">
+                    <li><strong>The Batman:</strong> .../mv/414906</li>
+                    <li><strong>Dune:</strong> .../mv/438631</li>
+                    <li><strong>Interstellar:</strong> .../mv/157336</li>
+                </ul>
+            </div>
+            
+            <div class="card">
+                <h2><span class="card-icon">📺</span> TV Shows</h2>
+                <p>Embed any TV show using its TMDB ID:</p>
+                <div class="url-example">https://itdevautocoding.github.io/mytmdbshow/tv/&lt;tmdb_id&gt;</div>
+                <ul class="example-list">
+                    <li><strong>Breaking Bad:</strong> .../tv/1396</li>
+                    <li><strong>Stranger Things:</strong> .../tv/66732</li>
+                    <li><strong>The Mandalorian:</strong> .../tv/82856</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2><span class="card-icon">ℹ️</span> How It Works</h2>
+            <p>This service provides direct embeds from vidsrc.dev with security restrictions:</p>
+            <ul class="example-list">
+                <li>Sandboxed iframes block ads and popups</li>
+                <li>Only allows content from vidsrc.dev</li>
+                <li>No tracking or data collection</li>
+            </ul>
+            <p style="margin-top: 1rem;"><strong>Note:</strong> Replace <em>yourusername</em> with your GitHub username.</p>
+        </div>
+        
+        <footer>
+            <p>Hosted on GitHub Pages • Not affiliated with TMDB or vidsrc.dev</p>
+        </footer>
+    </div>
 </body>
 </html>
